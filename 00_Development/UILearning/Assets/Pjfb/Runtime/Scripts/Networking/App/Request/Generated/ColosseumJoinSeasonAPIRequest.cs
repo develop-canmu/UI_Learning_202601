@@ -1,0 +1,35 @@
+//
+// This file is auto-generated
+//
+
+using System;
+using Pjfb.Networking.API;
+
+/*
+ユーザーの特定をシーズンに参加させて、ステータス状態を得る。
+基本的には、クライアント側からユーザーの参加状態がわからない場合はこちらを呼んで良いが、
+参加状態がわかっている上で情報の更新をしたい際は、getSeasonStatusを呼ぶ
+
+*/
+namespace Pjfb.Networking.App.Request {
+
+   
+   [Serializable]
+   public class ColosseumJoinSeasonAPIPost : AppAPIPostBase {
+		public long sColosseumEventId = 0; // シーズンのID（SeasonHome.idと同じもの）
+		public long getTurn = 0; // （共通）ターンを取得するかどうか。0、なし => しない、 1 => する。※別途sColosseumEventIdを指定してる必要があります
+
+   }
+
+   [Serializable]
+   public class ColosseumJoinSeasonAPIResponse : AppAPIResponseBase {
+		public ColosseumUserSeasonStatus userSeasonStatus = null; // ユーザーのシーズン情報を得る
+		public ColosseumDailyStatus dailyStatus = null; // 日毎の状態
+		public ColosseumScoreBattleTurn scoreBattleTurn = null; // （共通）ターン情報。開催期間外か何らかのトラブルが有る場合、取得できない。getTurnを指定時にのみ返す
+
+   }
+      
+   public partial class ColosseumJoinSeasonAPIRequest : AppAPIRequestBase<ColosseumJoinSeasonAPIPost, ColosseumJoinSeasonAPIResponse> {
+      public override string apiName{get{ return "colosseum/joinSeason"; } }
+   }
+}
