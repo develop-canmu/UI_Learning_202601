@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1397031230707712983}
   m_Layer: 5
-  m_Name: SupportEquipmentlcon
+  m_Name: DemoSupportEquipmentIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
